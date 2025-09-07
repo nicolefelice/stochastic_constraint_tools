@@ -6089,13 +6089,13 @@ def setup_plot(
                        "mean_feasibility_progress", 
                        "quantile_feasibility_progress"):
         if feas_score == 'inf_norm':
-            plt.ylabel("$L^\infty$ Feasibility Score", size=14)
+            plt.ylabel(r"$L^\infty$ Feasibility Score", size=14)
         elif feas_score == 'norm':
             plt.ylabel(f"$L^{norm_degree}$ Feasibility Score", size=14)
     elif plot_type in ("feasibility_scatter", 
                        "feasibility_violin"):
         if feas_score == 'inf_norm':
-            plt.ylabel("Terminal $L^\infty$ Feasibility Score", size=14)
+            plt.ylabel(r"Terminal $L^\infty$ Feasibility Score", size=14)
         elif feas_score == 'norm':
             plt.ylabel(f"Terminal $L^{norm_degree}$ Feasibility Score", size=14)
         
