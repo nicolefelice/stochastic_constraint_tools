@@ -22,14 +22,6 @@ Several papers have discussed the development of SimOpt and experiments run on t
 - The [`master branch`](https://github.com/simopt-admin/simopt/tree/master) contains the source code for the latest stable release of the testbed
 - The [`development branch`](https://github.com/simopt-admin/simopt/tree/development) contains the latest code for the testbed, but may contain more bugs than the master branch
 
-### Matlab
-> ⚠️ MATLAB versions of this testbed are no longer supported
-- The [`matlab branch`](https://github.com/simopt-admin/simopt/tree/matlab) contains a previous stable version of the testbed written in MATLAB
-
-## Documentation
-Full documentation for the source code can be found on our **[readthedocs page](https://simopt.readthedocs.io/en/latest/index.html)**.
-
-[![Documentation Status](https://readthedocs.org/projects/simopt/badge/?version=latest)](https://simopt.readthedocs.io/en/latest/?badge=latest)
 
 ## Getting Started
 ### Requirements
@@ -41,9 +33,8 @@ Full documentation for the source code can be found on our **[readthedocs page](
 - `datafarming` gem < 2.0 (required for datafarming)
     - This can be installed via `gem install datafarming -v 1.4` once Ruby is installed/configured.
     - If experiencing issues, make sure that you are not using version 2.0 or later as those releases does not include the required files.
-- Python packages for `numpy`, `scipy`, `matplotlib`, `pandas`, `seaborn`, `sphinx`, `mrg32k3a`, and `jupyter`.
-    - If using conda/miniconda, run `conda env create -f environment.yml` to create the `simopt` environment. Then run `conda activate simopt` to load the environment.
-    - Otherwise, run `pip install numpy scipy matplotlib pandas seaborn sphinx mrg32k3a jupyter`.
+- Python packages for `numpy`, `scipy`, `matplotlib`, `pandas`, `seaborn`, `sphinx`, `mrg32k3a`, `jupyter`, and 'cvxpy'.
+    -  run `pip install numpy scipy matplotlib pandas seaborn sphinx mrg32k3a jupyter cvxpy`.
 
 ### Downloading Source Code
 There are two ways to download a copy of the source code onto your machine:
@@ -91,21 +82,6 @@ One can then plot the mean progress curve of the solver (with confidence interva
 simopt.experiment_base.plot_progress_curves(experiments=[myexperiment], plot_type="mean", normalize=False)
 ```
 
-The Python scripts in the `demo` folder provide more guidance on how to run common experiments using the library.
-
-One can also use the SimOpt graphical user interface by running the following from the terminal:
-```
-python -m simopt
-```
-
-For the purposes of the diagnostic tools demo you will also need the packages mrg32k3a and cvxpy which can be installed by running: 
-```
-pip install mrg32k3a
-pip install cvxpy
-```
-
-## Contributing
-You can contribute problems and solvers to SimOpt (or fix other coding bugs) by [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository and initiating [pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) in GitHub to request that your changes be integrated.
 
 
 ## Authors
