@@ -33,7 +33,7 @@ Several papers have discussed the development of SimOpt and experiments run on t
 - `datafarming` gem < 2.0 (required for datafarming)
     - This can be installed via `gem install datafarming -v 1.4` once Ruby is installed/configured.
     - If experiencing issues, make sure that you are not using version 2.0 or later as those releases does not include the required files.
-- Python packages for `numpy`, `scipy`, `matplotlib`, `pandas`, `seaborn`, `sphinx`, `mrg32k3a`, `jupyter`, and 'cvxpy'.
+- Python packages for `numpy`, `scipy`, `matplotlib`, `pandas`, `seaborn`, `sphinx`, `mrg32k3a`, `jupyter`, and `cvxpy`.
     -  run `pip install numpy scipy matplotlib pandas seaborn sphinx mrg32k3a jupyter cvxpy`.
 
 ### Downloading Source Code
