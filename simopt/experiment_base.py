@@ -4228,7 +4228,6 @@ def plot_feasibility(
                     terminals = [
                         curve.y_vals[-1] for curve in experiment.objective_curves
                     ]
-                    print("plotted values", terminals)
                     if plot_conf_ints:
                         bootstrap_rng = MRG32k3a(s_ss_sss_index=[1, 0, 0])
                         all_obj_reps = []
