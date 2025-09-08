@@ -5544,6 +5544,7 @@ def plot_terminal_progress(
     normalize: bool = True,
     all_in_one: bool = True,
     plot_optimal: bool = False,
+    optimal_val: None = None,
     plot_title: str | None = None,
     ext: str = ".png",
     save_as_pickle: bool = False,
@@ -5688,7 +5689,10 @@ def plot_terminal_progress(
             else:
                 plt.ylabel("Terminal Objective")
             if plot_optimal and not normalize:
-                plt.axhline(y=np.mean(ref_experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                if optimal_val == None:
+                    plt.axhline(y=np.mean(ref_experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                else:
+                    plt.axhline(y=optimal_val, color='red', linestyle = '--', linewidth=.75)
         file_list.append(
             save_plot(
                 solver_name=solver_set_name,
@@ -5742,7 +5746,10 @@ def plot_terminal_progress(
             else:
                 plt.ylabel("Terminal Objective")
             if plot_optimal and not normalize:
-                plt.axhline(y=np.mean(experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                if optimal_val == None:
+                    plt.axhline(y=np.mean(experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                else:
+                    plt.axhline(y=optimal_val, color='red', linestyle = '--', linewidth=.75)
             file_list.append(
                 save_plot(
                     solver_name=experiment.solver.name,
