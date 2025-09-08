@@ -82,7 +82,9 @@ One can then plot the mean progress curve of the solver (with confidence interva
 simopt.experiment_base.plot_progress_curves(experiments=[myexperiment], plot_type="mean", normalize=False)
 ```
 
+## Diagnostic Tools Demo
 
+To reproduce the figures found in the diagnostic tools paper, run the file diagnostic_tools_demo.ipynb using Jutpyter Notebook. 
 
 ## Authors
 The core development team currently consists of 
