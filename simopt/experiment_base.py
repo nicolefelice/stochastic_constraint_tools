@@ -2223,6 +2223,7 @@ def post_normalize(
                 # set optimal f(x)* for each experiment
                 [setattr(experiment, 'fstar', best_objective) for experiment in experiments]
                 
+                
                 if abs(best_objective) == non_feasible_pentalty: # no feasible solution was found
                     raise RuntimeError("No feasible solutions found for which to estimate proxy for x*.")
                     
@@ -2300,6 +2301,7 @@ def post_normalize(
         best_objective = best_experiment.problem.minmax[0]*np.max(best_est_objectives)
         # set optimal f(x)* for each experiment
         [setattr(experiment, 'fstar', best_objective) for experiment in experiments]
+        print("fstar from postnormalization is...", best_objective)
         
         if abs(best_objective) == non_feasible_pentalty: # no feasible solution was found
             raise RuntimeError("No feasible solutions found for which to estimate proxy for x*.")
@@ -3421,7 +3423,7 @@ def plot_progress_curves(
                         [bs_conf_int_lb_curve, bs_conf_int_ub_curve]
                     )
                 if plot_optimal and not normalize:
-                    plt.axhline(y=np.mean(experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                    plt.axhline(y=np.mean(experiment.fstar), color='red', linestyle = '--', linewidth=.75)
         plt.legend(
             handles=solver_curve_handles,
             labels=[experiment.solver.name for experiment in experiments],
@@ -4293,7 +4295,7 @@ def plot_feasibility(
                 if plot_zero:
                     plt.axhline(y=0, color='red', linestyle = '--', linewidth=.75)   
                 if plot_optimal:
-                    plt.axvline(x=np.mean(experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                    plt.axvline(x=experiment.fstar, color='red', linestyle = '--', linewidth=.75)
                     print("mean x_star postreps",np.mean(experiment.xstar_postreps) )
                     print("fstar", experiment.fstar)
                 file_list.append(
@@ -4399,6 +4401,7 @@ def plot_feasibility(
                         plt.axhline(y=0, color='red', linestyle = '--', linewidth=.75) 
                     if plot_optimal:
                         plt.axvline(x=experiment.fstar, color='red', linestyle = '--', linewidth=.75)
+                        print("fstar from plotting is...", experiment.fstar)
                     file_list.append(
                         save_plot(
                             solver_name=experiment.solver.name,
@@ -5690,7 +5693,7 @@ def plot_terminal_progress(
                 plt.ylabel("Terminal Objective")
             if plot_optimal and not normalize:
                 if optimal_val == None:
-                    plt.axhline(y=np.mean(ref_experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                    plt.axhline(y=np.mean(ref_experiment.fstar), color='red', linestyle = '--', linewidth=.75)
                 else:
                     plt.axhline(y=optimal_val, color='red', linestyle = '--', linewidth=.75)
         file_list.append(
@@ -5747,7 +5750,7 @@ def plot_terminal_progress(
                 plt.ylabel("Terminal Objective")
             if plot_optimal and not normalize:
                 if optimal_val == None:
-                    plt.axhline(y=np.mean(experiment.xstar_postreps), color='red', linestyle = '--', linewidth=.75)
+                    plt.axhline(y=np.mean(experiment.fstar), color='red', linestyle = '--', linewidth=.75)
                 else:
                     plt.axhline(y=optimal_val, color='red', linestyle = '--', linewidth=.75)
             file_list.append(
